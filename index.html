@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="script" href="script.js">
+    <title>TODO List</title>
+    
+</head>
+
+<body>
+    <div class="container">
+        <h1>TODO List</h1>
+        <div class="form-container">
+            <button id="fetch-todos">Fetch Todos</button>
+        </div>
+        <div class="form-container">
+            <form id="add-todo-form">
+                <input type="text" id="new-todo-input" placeholder="Add a new todo...">
+                <button type="submit">Add</button>
+            </form>
+        </div>
+       
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+        </div>  
+
+        <ul id="todo-list" class="todo-list"></ul>
+
+        <div class="footer">
+            <p>Total TODOs: <span id="todo-count">0</span></p>
+        </div>
+    </div>
+
+</body>
+</html>
