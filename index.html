@@ -160,9 +160,18 @@ function fetchTodos() {
 
 fetchTodosButton.addEventListener('click', fetchTodos);
     
-   
-//Add new TODO
 
+// Save todos to localStorage
+function storeToLocalStorage() {
+    localStorage.setItem('todos', JSON.stringify(todos));
+}
+   
+if (localStorage.getItem('todos')) {
+    todos = JSON.parse(localStorage.getItem('todos'));
+    renderTodos();
+    updateTodoCount();
+}
+//Add new TODO
     
     addTodoForm.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -173,6 +182,7 @@ fetchTodosButton.addEventListener('click', fetchTodos);
 
             renderTodos();
             updateTodoCount();
+            storeToLocalStorage();
     
             //send a POST request to the dummy API
            /* fetch('https://dummyjson.com/todos', {
@@ -198,6 +208,7 @@ fetchTodosButton.addEventListener('click', fetchTodos);
         todos.splice(index, 1);
         renderTodos();
         updateTodoCount();
+        storeToLocalStorage();
     }
 }
 
