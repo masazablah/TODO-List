@@ -37,6 +37,8 @@
     </div>
 
 </body>
+
+<!--Retrieve TODO list-->
 <script>
     const todoInput = document.getElementById('todo-input');
     const fetchTodosButton = document.getElementById('fetch-todos');
@@ -158,5 +160,34 @@ function fetchTodos() {
 fetchTodosButton.addEventListener('click', fetchTodos);
     
    
+//Add new TODO
+
+    
+    addTodoForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const text = newTodoInput.value.trim();
+        if (text) {
+            todos.push({ text, userId:1 });
+            newTodoInput.value = '';
+
+            renderTodos();
+            updateTodoCount();
+    
+            //send a POST request to the dummy API
+           /* fetch('https://dummyjson.com/todos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ todo: text, completed: false, userId: 1 })
+            })
+            .then(response => response.json())
+            .then(data => console.log('New TODO added:', data))
+            .catch(error => console.error('Error adding new TODO:', error));*/
+        } else {
+            alert('Please enter a valid todo.');
+        }
+    });
+    
 </script>
 </html>
