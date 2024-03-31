@@ -46,6 +46,7 @@
     const todoCount = document.getElementById('todo-count');
     const addTodoForm = document.getElementById('add-todo-form');
     const newTodoInput = document.getElementById('new-todo-input');
+    const searchInput = document.getElementById('search-input');
 
 let todos = [];
 
@@ -187,6 +188,26 @@ fetchTodosButton.addEventListener('click', fetchTodos);
         } else {
             alert('Please enter a valid todo.');
         }
+    });
+
+    // delete a todo
+
+    function deleteTodo(index) {
+    const delete_confirm = confirm('Are you sure you want to delete this TODO?');
+    if (delete_confirm) {
+        todos.splice(index, 1);
+        renderTodos();
+        updateTodoCount();
+    }
+}
+
+    
+// search todo
+
+    searchInput.addEventListener('input', () => {
+        const search = searchInput.value.toLowerCase();
+        const filtered = todos.filter(todo => todo.text.toLowerCase().includes(search));
+        renderTodos(filtered);
     });
     
 </script>
