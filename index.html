@@ -111,7 +111,7 @@ function renderTodos(todosToRender) {
         checkbox.checked = todo.completed;
         checkbox.className = 'checkbox';
         checkbox.addEventListener('change', () => {
-            toggleTodoStatus(index);
+            changeTodoStatus(index);
         });
 
         li.appendChild(id);
@@ -220,6 +220,14 @@ if (localStorage.getItem('todos')) {
         const filtered = todos.filter(todo => todo.text.toLowerCase().includes(search));
         renderTodos(filtered);
     });
+
+// status
+
+function changeTodoStatus(index) {
+        todos[index].completed = !todos[index].completed;
+        renderTodos();
+        storeToLocalStorage();
+    }
     
 </script>
 </html>
